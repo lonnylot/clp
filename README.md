@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lonnylot/clp.png)](https://travis-ci.org/lonnylot/clp)
+
 # clp
 `clp` is an easy to use interface for showing users progress updates on the CLI.
 
