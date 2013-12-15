@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/lonnylot/cpl.png?branch=master)](https://travis-ci.org/lonnylot/cpl)
-[![Codebot](https://codebot.io/badge/github.com/lonnylot/cpl.png)](http://codebot.io/doc/pkg/github.com/lonnylot/cpl "Codebot")
+[![Build Status](https://travis-ci.org/lonnylot/clp.png?branch=master)](https://travis-ci.org/lonnylot/clp)
+[![Codebot](https://codebot.io/badge/github.com/lonnylot/clp.png)](http://codebot.io/doc/pkg/github.com/lonnylot/clp "Codebot")
 
 # clp
 `clp` is an easy to use interface for showing users progress updates on the CLI.
