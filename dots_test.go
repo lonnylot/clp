@@ -1,4 +1,4 @@
-package progress
+package clp
 
 import (
 	"bytes"
@@ -8,10 +8,10 @@ import (
 )
 
 func ExampleDots() {
-	progress := NewDots()
-	progress.Start()
+	clp := NewDots()
+	clp.Start()
 	// ... do something here
-	progress.Stop()
+	clp.Stop()
 }
 
 func TestDotOutput(t *testing.T) {

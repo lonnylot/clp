@@ -1,4 +1,4 @@
-package progress
+package clp
 
 import (
 	"bytes"
@@ -15,7 +15,7 @@ type Dots struct {
 	stop, finished chan bool
 }
 
-// Create new progress Dots
+// Create new clp Dots
 func NewDots() *Dots {
 	return &Dots{
 		Interval: time.Second,
@@ -24,7 +24,7 @@ func NewDots() *Dots {
 	}
 }
 
-// Start the progress dots
+// Start the clp dots
 func (p *Dots) Start() {
 	p.stop, p.finished = make(chan bool), make(chan bool)
 	go func() {
@@ -66,7 +66,7 @@ func (p *Dots) head() byte {
 	return b
 }
 
-// Stop the progress dots
+// Stop the clp dots
 func (p *Dots) Stop() {
 	p.stop <- true
 	<-p.finished

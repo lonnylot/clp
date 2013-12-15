@@ -1,4 +1,4 @@
-package progress
+package clp
 
 import (
 	"bytes"
@@ -11,11 +11,11 @@ import (
 type Bar struct {
 	Current int64     // The current progress
 	Total   int64     // The total we are trying to get to
-	Output  io.Writer // Where to output the progress bar
-	Width   int       // The character width of the progress bar
+	Output  io.Writer // Where to output the clp bar
+	Width   int       // The character width of the clp bar
 }
 
-// Create a new progress Bar. total is the total progress we are trying to make
+// Create a new clp Bar. total is the total clp we are trying to make
 func NewBar(total int64) *Bar {
 	return &Bar{
 		Total:  total,
@@ -25,7 +25,7 @@ func NewBar(total int64) *Bar {
 }
 
 func (p *Bar) printBar() {
-	// Calculate our progress
+	// Calculate our clp
 	percent := 0
 	if p.Current > p.Total {
 		percent = 100
@@ -44,18 +44,18 @@ func (p *Bar) printBar() {
 	b.WriteTo(p.Output)
 }
 
-// Start up the progress bar
+// Start up the clp bar
 func (p *Bar) Start() {
 	p.printBar()
 }
 
-// Increment the progress bar by n and update the display
+// Increment the clp bar by n and update the display
 func (p *Bar) Inc(n int64) {
 	p.Current = p.Current + n
 	p.printBar()
 }
 
-// Stop the progress bar
+// Stop the clp bar
 func (p *Bar) Stop() {
 	p.Output.Write([]byte("\n"))
 }

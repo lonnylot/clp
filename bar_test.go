@@ -1,4 +1,4 @@
-package progress
+package clp
 
 import (
 	"bytes"
@@ -7,12 +7,12 @@ import (
 )
 
 func ExampleBar() {
-	progress := NewBar(1024)
-	progress.Start()
+	clp := NewBar(1024)
+	clp.Start()
 	for i := 0; i < 2; i++ {
-		progress.Inc(512)
+		clp.Inc(512)
 	}
-	progress.Stop()
+	clp.Stop()
 }
 
 func TestWidth(t *testing.T) {

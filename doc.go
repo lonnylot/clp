@@ -1,5 +1,5 @@
 /*
 People don't like to be left in limbo, especially on the command line.
-progress is an easy to use API for keeping people up to date on the CLI.
+clp is an easy to use interface for showing users progress updates on the CLI.
 */
-package progress
+package clp
