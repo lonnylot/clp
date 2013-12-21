@@ -28,8 +28,12 @@ func NewDots() *Dots {
 func (p *Dots) Start() {
 	p.stop, p.finished = make(chan bool), make(chan bool)
 	go func() {
-		progress := time.Tick(time.Duration(p.Interval))
-		update := time.Tick(time.Duration(time.Second / 10))
+		progress := time.NewTicker(time.Duration(p.Interval))
+		update := time.NewTicker(time.Duration(time.Second / 10))
+		defer func(){
+			progress.Stop()
+			update.Stop()
+		}()
 		b := new(bytes.Buffer)
 		for {
 			b.Reset()
@@ -39,11 +43,11 @@ func (p *Dots) Start() {
 				p.finished <- true
 				close(p.stop)
 				return
-			case <-progress:
+			case <-progress.C:
 				b.WriteString("\b.")
 				b.WriteByte(p.head())
 				b.WriteTo(p.Output)
-			case <-update:
+			case <-update.C:
 				b.WriteByte('\b')
 				b.WriteByte(p.head())
 				b.WriteTo(p.Output)
